@@ -5,7 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
 /**
  * 
@@ -34,9 +34,9 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
-    use HasFactory, Notifiable;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -71,4 +71,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+     // Returns the user identifier for the JWT
+     public function getJWTIdentifier()
+     {
+         return $this->getKey();
+     }
+ 
+     // Returns a key value array, containing any custom claims to be added to the JWT
+     public function getJWTCustomClaims()
+     {
+         return [];
+     }
 }
