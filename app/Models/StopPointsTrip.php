@@ -30,4 +30,24 @@ class StopPointsTrip extends Model
     {
         return $this->belongsTo(Station::class, 'end_station_id');
     }
+    
+    /**
+     * Get the name of the start station by its ID.
+     *
+     * @return string|null
+     */
+    public function getStartStationNameAttribute()
+    {
+        return $this->startStation ? $this->startStation->name : null;
+    }
+
+    /**
+     * Get the name of the end station by its ID.
+     *
+     * @return string|null
+     */
+    public function getEndStationNameAttribute()
+    {
+        return $this->endStation ? $this->endStation->name : null;
+    }
 }

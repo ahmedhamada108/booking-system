@@ -59,6 +59,10 @@ class Trip extends Model
     {
         return $this->belongsTo(Station::class, 'end_station_id');
     }
+    public function stopPoints()
+    {
+        return $this->hasMany(StopPointsTrip::class, 'trip_id');
+    }
 
     public function bookings()
     {
