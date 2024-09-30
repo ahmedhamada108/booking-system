@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('stop_points_trips', function (Blueprint $table) {
             $table->id();
             $table->foreignId('trip_id')->constrained('trips')->onDelete('cascade');
-            $table->foreignId('station_id')->constrained('stations')->onDelete('cascade');
+            $table->foreignId('start_station_id')->constrained('stations')->onDelete('cascade');
+            $table->foreignId('end_station_id')->constrained('stations')->onDelete('cascade');
+            $table->string('available_seats');
             $table->timestamps();
         });
     }
