@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             StationsTableSeeder::class,
             BusesTableSeeder::class,
+            SeatsTableSeeder::class,
+            TripSeeder::class,
+            StopPointsTripSeeder::class,
         ]);
         User::create([
             'name' => 'Jane Smith',
