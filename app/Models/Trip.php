@@ -32,6 +32,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Trip whereStartStationId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Trip whereStartTime($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Trip whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\StopPointsTrip> $stopPoints
+ * @property-read int|null $stop_points_count
  * @mixin \Eloquent
  */
 class Trip extends Model

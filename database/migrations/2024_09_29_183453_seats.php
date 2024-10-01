@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
             $table->foreignId('bus_id')->constrained('buses')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('seat_number');
+            $table->integer('seat_number')->unique();
             $table->enum('status', ['available', 'unavailable']);
-            $table->unique(['bus_id', 'seat_number']);
             $table->timestamps();
         });
     }

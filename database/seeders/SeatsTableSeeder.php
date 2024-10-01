@@ -13,18 +13,20 @@ class SeatsTableSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-     public function run()
+    public function run()
     {
-        $buses = Bus::all();
-
-        foreach ($buses as $bus) {
-            for ($i = 1; $i <= 50; $i++) {
+        $buses = [1, 2, 3]; // List of bus IDs
+        $totalSeats = 50; // Total number of seats per bus
+    
+        foreach ($buses as $busId) {
+            for ($i = 1; $i <= $totalSeats; $i++) {
                 Seats::create([
-                    'bus_id' => $bus->id,
-                    'seat_number' => $i,
-                    'status' => 'available',
+                    'bus_id' => $busId,
+                    'seat_number' => rand(500, 50000),
+                    'status' => 'available'
                 ]);
             }
         }
     }
+    
 }
