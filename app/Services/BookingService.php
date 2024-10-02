@@ -45,9 +45,6 @@ class BookingService
             ]);
         }
 
-        $this->repository->decrementAvailableSeats($dto->trip_id, $startSortOrder, $endSortOrder, $dto->quantity);
-
-        $this->repository->updateSeatStatus($dto->seat_ids, 'unavailable');
 
         event(new BookingCreated(
             $dto->trip_id,

@@ -21,17 +21,4 @@ class BookingRepository
     {
         return Booking::create($data);
     }
-
-    public function decrementAvailableSeats($trip_id, $startSortOrder, $endSortOrder, $quantity)
-    {
-        StopPointsTrip::where('trip_id', $trip_id)
-            ->where('sort_order', '>=', $startSortOrder)
-            ->where('sort_order', '<=', $endSortOrder)
-            ->decrement('available_seats', $quantity);
-    }
-
-    public function updateSeatStatus($seat_ids, $status)
-    {
-        Seats::whereIn('id', $seat_ids)->update(['status' => $status]);
-    }
 }
