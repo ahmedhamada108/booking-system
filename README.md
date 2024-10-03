@@ -22,7 +22,7 @@ This Laravel Bus Booking System is designed to manage bus trips, stations, and s
 2. Navigate to the project directory:
 
    ```bash
-   cd laravel-bus-booking
+   cd booking-system
    ```
 
 3. Install the dependencies using Composer:
